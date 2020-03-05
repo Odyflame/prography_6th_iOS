@@ -26,26 +26,44 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="최소 평점을 입력하세요 (0~9)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1G6-pB-Z8H">
-                                <rect key="frame" x="20" y="117" width="204" height="21"/>
+                                <rect key="frame" x="20" y="117" width="204" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="(0 ~ 9)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bmY-r4-pGM">
-                                <rect key="frame" x="20" y="146" width="374" height="34"/>
+                                <rect key="frame" x="20" y="145.5" width="374" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
                             </textField>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="Mbs-mI-yrW">
+                                <rect key="frame" x="47" y="198" width="320" height="253.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="밑에서 선택을 하셔도 됩니다!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IDd-vS-jEq">
+                                        <rect key="frame" x="62.5" y="0.0" width="195" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z40-Dm-JBa">
+                                        <rect key="frame" x="0.0" y="37" width="320" height="216"/>
+                                    </pickerView>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="7NR-iG-UeH" secondAttribute="trailing" constant="20" id="AUM-20-ycx"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Mbs-mI-yrW" secondAttribute="trailing" constant="47" id="CPu-oN-Rlo"/>
                             <constraint firstItem="bmY-r4-pGM" firstAttribute="top" secondItem="1G6-pB-Z8H" secondAttribute="bottom" constant="8" id="Hwd-dU-AU8"/>
+                            <constraint firstItem="Mbs-mI-yrW" firstAttribute="top" secondItem="bmY-r4-pGM" secondAttribute="bottom" constant="18.5" id="NNo-iU-Rbj"/>
+                            <constraint firstItem="Mbs-mI-yrW" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="47" id="QK2-5K-GY8"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="bmY-r4-pGM" secondAttribute="trailing" constant="20" id="TGo-75-Rpp"/>
                             <constraint firstItem="bmY-r4-pGM" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="UXm-Da-uK4"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="7NR-iG-UeH" secondAttribute="bottom" constant="44" id="cGG-ql-Lvb"/>
                             <constraint firstItem="1G6-pB-Z8H" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="29" id="dIv-sA-0bJ"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="1G6-pB-Z8H" secondAttribute="trailing" constant="190" id="ek8-90-gP3"/>
+                            <constraint firstItem="7NR-iG-UeH" firstAttribute="top" relation="lessThanOrEqual" secondItem="Mbs-mI-yrW" secondAttribute="bottom" constant="336.5" id="gCk-fw-zq8"/>
                             <constraint firstItem="1G6-pB-Z8H" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="lXl-X0-a3z"/>
                             <constraint firstItem="7NR-iG-UeH" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="uty-NS-RRU"/>
                         </constraints>
@@ -53,6 +71,8 @@
                     </view>
                     <navigationItem key="navigationItem" title="Movie" id="Vff-ML-Gbb"/>
                     <connections>
+                        <outlet property="nextBtn" destination="7NR-iG-UeH" id="OvD-XV-HCp"/>
+                        <outlet property="picker" destination="Z40-Dm-JBa" id="la4-ay-czS"/>
                         <outlet property="rateInput" destination="bmY-r4-pGM" id="4Fz-2X-Mjl"/>
                     </connections>
                 </viewController>

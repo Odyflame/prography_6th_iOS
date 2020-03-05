@@ -14,14 +14,27 @@ class ViewController: UIViewController {
     var moiveRes: [MovieResponse] = []
     var movies: [Movie] = []
     var selected10Movies: [Movie] = []
+    var values: [String] = ["0","1","2","3","4","5","6","7","8","9"]
     
     @IBOutlet weak var rateInput: UITextField!
-    
+    @IBOutlet weak var nextBtn: UIButton!
+    @IBOutlet weak var picker: UIPickerView!
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        nextBtn.layer.cornerRadius = 10
+        
+        UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseIn, animations: {
+            self.nextBtn.center.x += self.view.bounds.width
+            self.view.layoutIfNeeded()
+        }, completion: nil)
+        
         self.getData()
         self.getMovie()
+        
+        self.picker.dataSource = self
+        self.picker.delegate = self
+        
     }
     
     func getData() {
@@ -76,5 +89,23 @@ class ViewController: UIViewController {
             nextViewController.allMovie = self.movies
             nextViewController.myMovie = self.selected10Movies
         }
+    }
+}
+
+extension ViewController: UIPickerViewDelegate, UIPickerViewDataSource {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return self.values.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return "\(self.values[row])"
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        rateInput.text = self.values[row]
     }
 }
